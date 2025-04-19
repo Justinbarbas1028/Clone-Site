@@ -3,24 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PhilHealth</title>
+    <meta name="description" content="PhilHealth - Accessible healthcare for every Filipino. Your partner in ensuring affordable and quality health services.">
+    <title>PhilHealth - Universal Healthcare for Filipinos</title>
     <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Add Tailwind CSS for utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#006d38',
+                        secondary: '#ffdd57',
+                        light: '#f5f9f6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body class="font-sans bg-light text-gray-800">
+    <!-- Loading indicator for system status visibility -->
+    <div id="page-loader" class="fixed inset-0 bg-white z-50 flex items-center justify-center transition-opacity duration-500">
+        <div class="flex flex-col items-center">
+            <img src="./assets/images/logo.png" alt="PhilHealth Logo" class="w-48 animate-pulse">
+            <div class="mt-4 text-primary font-semibold">Loading...</div>
+            <div class="w-48 h-1 bg-gray-200 rounded-full mt-2 overflow-hidden">
+                <div id="loading-bar" class="h-full bg-primary" style="width: 0%"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Accessibility Skip Links -->
     <div class="skip-links">
         <a href="#main-content" class="skip-link">Skip to Content</a>
         <a href="#nav-menu" class="skip-link">Skip to Menu</a>
     </div>
 
-    <header class="navbar">
+    <!-- Cookie consent banner for better user control -->
+    <div id="cookie-consent" class="fixed bottom-0 left-0 w-full bg-white shadow-lg z-40 transform translate-y-full transition-transform duration-500">
+        <div class="container mx-auto p-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div>
+                <h3 class="font-semibold text-gray-800">We value your privacy</h3>
+                <p class="text-sm text-gray-600">We use cookies to enhance your browsing experience and analyze our traffic.</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+                <button id="cookie-accept" class="btn bg-primary text-white px-4 py-2">Accept All</button>
+                <button id="cookie-settings" class="btn bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 px-4 py-2">Cookie Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <header class="navbar relative shadow-md">
         <div class="container">
             <img src="./assets/images/logo.png" alt="PhilHealth Logo" class="logo">
-            <nav id="nav-menu">
+            
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-button" class="md:hidden text-white bg-primary p-2 rounded-md" aria-label="Open menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            
+            <nav id="nav-menu" class="md:block hidden w-full md:w-auto">
                 <ul class="nav-links">
+                    <li><a href="#" class="active" aria-current="page">Home</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#members">Membership</a></li>
                     <li><a href="#services">Services</a></li>
@@ -31,96 +83,360 @@
         </div>
     </header>
 
-    <section id="main-content" class="hero">
-        <div class="container">
-            <h2>Accessible Healthcare for Every Filipino</h2>
-            <p>Your partner in ensuring affordable and quality health services.</p>
-            <a href="#members" class="btn">Explore Membership</a>
+    <!-- Hero section with enhanced visuals and accessibility -->
+    <section id="main-content" class="hero relative overflow-hidden">
+        <div class="container relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white animate-fade-in">Accessible Healthcare for Every Filipino</h1>
+                <p class="text-xl opacity-90 mb-8 animate-fade-in animation-delay-200">Your partner in ensuring affordable and quality health services.</p>
+                <div class="flex justify-center gap-4 flex-wrap animate-fade-in animation-delay-400">
+                    <a href="#members" class="btn bg-secondary text-primary hover:bg-secondary/90 flex items-center gap-2">
+                        <span>Explore Membership</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="./pages/services.html" class="btn bg-white/20 text-white hover:bg-white/30 backdrop-blur-sm">
+                        View Services
+                    </a>
+                </div>
+                
+                <!-- Visual system status indicator -->
+                <div class="flex items-center justify-center mt-16">
+                    <div class="flex gap-1">
+                        <span class="w-2 h-2 bg-white rounded-full animate-ping"></span>
+                        <span class="w-2 h-2 bg-white rounded-full animate-ping" style="animation-delay: 300ms"></span>
+                        <span class="w-2 h-2 bg-white rounded-full animate-ping" style="animation-delay: 600ms"></span>
+                    </div>
+                    <span class="ml-2 text-white/80 text-sm">Scroll down to learn more</span>
+                </div>
+            </div>
+        </div>
+        <!-- Background animation for visual interest -->
+        <div class="absolute -bottom-10 left-0 right-0 h-64 bg-primary opacity-30 blur-3xl"></div>
+    </section>
+
+    <!-- About section with improved content structure -->
+    <section id="about" class="section py-16 relative overflow-hidden fade-in">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">About PhilHealth</h2>
+                <p class="text-lg text-gray-600 mb-8">Learn about our commitment to universal health coverage and accessible, quality healthcare for all Filipinos.</p>
+                
+                <!-- Mission and vision with visual elements -->
+                <div class="grid md:grid-cols-2 gap-8 mt-12">
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow transform hover:-translate-y-1 duration-300">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fa-solid fa-bullseye text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Our Mission</h3>
+                        <p class="text-gray-600">To ensure sustainable, affordable, and progressive social health insurance which endeavors to influence the delivery of accessible quality health care for all Filipinos.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow transform hover:-translate-y-1 duration-300">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fa-solid fa-eye text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Our Vision</h3>
+                        <p class="text-gray-600">A world-class public health insurance provider ensuring equitable access to healthcare for every Filipino.</p>
+                    </div>
+                </div>
+                
+                <div class="mt-10">
+                    <a href="./pages/about.html" class="inline-flex items-center text-primary font-medium hover:underline">
+                        Learn more about PhilHealth
+                        <i class="fa-solid fa-arrow-right ml-1 transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative background elements -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-32 -mt-32"></div>
+        <div class="absolute bottom-0 left-0 w-72 h-72 bg-primary/5 rounded-full -ml-36 -mb-36"></div>
+    </section>
+
+    <!-- Membership section with enhanced visual hierarchy -->
+    <section id="members" class="section py-16 bg-gradient-to-b from-white to-primary/5 fade-in">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <img src="./assets/images/img20.jpg" alt="Diverse group of people representing PhilHealth members" class="content-image rounded-xl mx-auto mb-6 shadow-lg">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Membership Options</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Find the right membership category for your needs and access quality healthcare services through PhilHealth.</p>
+            </div>
+            
+            <!-- Membership cards with interactive elements -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div class="card group hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                        <i class="fa-solid fa-briefcase text-2xl text-primary"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-3 text-primary">Employed</h4>
+                    <p class="text-gray-600 mb-4">Coverage for employees in public and private sectors with contribution sharing between employer and employee.</p>
+                    <a href="./pages/membership.html" class="text-primary text-sm font-medium hover:underline inline-flex items-center mt-auto">
+                        Learn more <i class="fa-solid fa-chevron-right ml-1 text-xs transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+                
+                <div class="card group hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                        <i class="fa-solid fa-store text-2xl text-primary"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-3 text-primary">Self-Employed</h4>
+                    <p class="text-gray-600 mb-4">Options for freelancers, entrepreneurs, and informal workers with flexible payment schemes.</p>
+                    <a href="./pages/membership.html" class="text-primary text-sm font-medium hover:underline inline-flex items-center mt-auto">
+                        Learn more <i class="fa-solid fa-chevron-right ml-1 text-xs transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+                
+                <div class="card group hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                        <i class="fa-solid fa-heart text-2xl text-primary"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold mb-3 text-primary">Senior Citizens</h4>
+                    <p class="text-gray-600 mb-4">Automatic coverage for Filipino seniors as provided under Republic Act No. 10645 with special benefits.</p>
+                    <a href="./pages/membership.html" class="text-primary text-sm font-medium hover:underline inline-flex items-center mt-auto">
+                        Learn more <i class="fa-solid fa-chevron-right ml-1 text-xs transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="./pages/membership.html" class="btn bg-primary text-white hover:bg-primary/90">View All Membership Categories</a>
+            </div>
         </div>
     </section>
 
-    <section id="about" class="section">
-        <div class="container">
-            <h3><a href="./pages/about.html">About PhilHealth</a></h3>
-            <p>Learn about our commitment to universal health coverage and accessible, quality healthcare for all Filipinos.</p>
-        </div>
-    </section>
-
-    <section id="members" class="section">
-        <div class="container">
-            <img src="./assets/images/img20.jpg" alt="Diverse group of people representing PhilHealth members" class="content-image">
-            <h3><a href="./pages/membership.html">Membership Options</a></h3>
-            <p>Find the right membership category for your needs.</p>
-            <div class="cards">
-                <div class="card">
-                    <h4>Employed</h4>
-                    <p>Coverage for employees in public and private sectors.</p>
+    <!-- Services section with improved interactive elements -->
+    <section id="services" class="section py-16 fade-in">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">Our Services</h2>
+                    <p class="text-lg text-gray-600 mb-6">Discover the benefits and services available to members through our comprehensive healthcare coverage.</p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <!-- Service items with visual feedback -->
+                        <div class="flex items-center bg-white p-3 rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer group">
+                            <div class="w-10 h-10 bg-primary/10 rounded-md flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                                <i class="fa-solid fa-kit-medical text-primary"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-medium">Comprehensive Benefits Packages</h4>
+                                <p class="text-sm text-gray-600">Coverage for hospitalization, medicines, and specialized treatments</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center bg-white p-3 rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer group">
+                            <div class="w-10 h-10 bg-primary/10 rounded-md flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                                <i class="fa-solid fa-file-invoice text-primary"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-medium">Efficient Claims Processing</h4>
+                                <p class="text-sm text-gray-600">Fast and reliable processing of healthcare claims</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center bg-white p-3 rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer group">
+                            <div class="w-10 h-10 bg-primary/10 rounded-md flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                                <i class="fa-solid fa-desktop text-primary"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-medium">Online Member Services</h4>
+                                <p class="text-sm text-gray-600">Convenient digital access to PhilHealth services</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center bg-white p-3 rounded-lg shadow-sm hover:shadow-md transition-shadow cursor-pointer group">
+                            <div class="w-10 h-10 bg-primary/10 rounded-md flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                                <i class="fa-solid fa-hospital text-primary"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-medium">Network of Accredited Facilities</h4>
+                                <p class="text-sm text-gray-600">Access to healthcare providers nationwide</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="./pages/services.html" class="btn bg-primary text-white hover:bg-primary/90 inline-flex items-center">
+                        <span>Explore Our Services</span>
+                        <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
                 </div>
-                <div class="card">
-                    <h4>Self-Employed</h4>
-                    <p>Options for freelancers, entrepreneurs, and informal workers.</p>
-                </div>
-                <div class="card">
-                    <h4>Senior Citizens</h4>
-                    <p>Information on automatic coverage for Filipino seniors.</p>
+                
+                <!-- Service illustrations with animations -->
+                <div class="space-y-4">
+                    <img src="./assets/images/img21.jpg" alt="Illustration of medical benefits" class="content-image rounded-xl shadow-lg hover:shadow-xl transition-shadow transform hover:scale-[1.02] duration-300">
+                    <img src="./assets/images/img22.jpg" alt="Person using online services on a laptop" class="content-image rounded-xl shadow-lg hover:shadow-xl transition-shadow transform hover:scale-[1.02] duration-300">
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="section">
-        <div class="container">
-            <img src="./assets/images/img21.jpg" alt="Illustration of medical benefits" class="content-image">
-            <img src="./assets/images/img22.jpg" alt="Person using online services on a laptop" class="content-image">
-            <h3><a href="./pages/services.html">Our Services</a></h3>
-            <p>Discover the benefits and services available to members.</p>
-            <ul class="services-list">
-                <li>Comprehensive Benefits Packages</li>
-                <li>Efficient Claims Processing</li>
-                <li>Convenient Online Member Services</li>
-                <li>Network of Accredited Facilities</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="news" class="section news">
-        <div class="container">
-            <h3><a href="./pages/news.html">Latest Updates & News</a></h3>
-            <p>Stay informed about the latest developments and announcements from PhilHealth.</p>
-            <div class="news-items">
-                <div class="news-item">
-                    <h4>Expanded Coverage Planned for 2025</h4>
-                    <p>Learn about upcoming enhancements to benefits and member access.</p>
+    <!-- News section with enhanced content presentation -->
+    <section id="news" class="section news py-16 fade-in">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Latest Updates & News</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Stay informed about the latest developments and announcements from PhilHealth.</p>
+            </div>
+            
+            <div class="news-items max-w-5xl mx-auto">
+                <!-- News cards with hover effects -->
+                <div class="news-item hover:transform hover:translate-x-2 transition-all duration-300">
+                    <div class="flex flex-col md:flex-row md:items-center">
+                        <div class="md:w-32 mb-4 md:mb-0 md:mr-6 flex-shrink-0">
+                            <div class="bg-primary/10 py-2 px-4 rounded-lg text-center">
+                                <span class="text-xs text-primary/70 block">April</span>
+                                <span class="text-2xl font-bold text-primary block">15</span>
+                                <span class="text-xs text-primary/70 block">2025</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Expanded Coverage Planned for 2025</h4>
+                            <p class="text-gray-600 mb-3">Learn about upcoming enhancements to benefits and member access, including new outpatient packages and specialized treatments.</p>
+                            <a href="./pages/news.html" class="text-primary hover:underline inline-flex items-center">
+                                Read more <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="news-item">
-                    <h4>Online System Upgrade Successful</h4>
-                    <p>Experience faster processing and improved online service delivery.</p>
+                
+                <div class="news-item hover:transform hover:translate-x-2 transition-all duration-300">
+                    <div class="flex flex-col md:flex-row md:items-center">
+                        <div class="md:w-32 mb-4 md:mb-0 md:mr-6 flex-shrink-0">
+                            <div class="bg-primary/10 py-2 px-4 rounded-lg text-center">
+                                <span class="text-xs text-primary/70 block">April</span>
+                                <span class="text-2xl font-bold text-primary block">02</span>
+                                <span class="text-xs text-primary/70 block">2025</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-800 mb-2">Online System Upgrade Successful</h4>
+                            <p class="text-gray-600 mb-3">Experience faster processing and improved online service delivery with our newly upgraded digital platform.</p>
+                            <a href="./pages/news.html" class="text-primary hover:underline inline-flex items-center">
+                                Read more <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="./pages/news.html" class="btn bg-white border border-primary text-primary hover:bg-gray-50">View All News</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick access resources with improved layout -->
+    <section class="section extra-links py-16 fade-in">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 text-center">Quick Access & Partner Resources</h2>
+            <p class="text-lg text-gray-600 mb-8 text-center max-w-2xl mx-auto">Find important links and information about our partners.</p>
+            
+            <!-- Image links with enhanced accessibility -->
+            <div class="image-links grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 max-w-5xl mx-auto">
+                <a href="#" class="relative overflow-hidden group rounded-lg" aria-label="Konsulta Program Information">
+                    <img src="./assets/images/konsulta.jpg" alt="Konsulta Program Information" class="w-full h-auto rounded-lg transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white font-medium text-sm">Konsulta Program</span>
+                    </div>
+                </a>
+                <a href="./pages/contact.html" class="relative overflow-hidden group rounded-lg" aria-label="Contact PhilHealth">
+                    <img src="./assets/images/contact_btn.jpg" alt="Contact PhilHealth" class="w-full h-auto rounded-lg transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white font-medium text-sm">Contact Us</span>
+                    </div>
+                </a>
+                <a href="#" class="relative overflow-hidden group rounded-lg" aria-label="Universal Health Care Law Information">
+                    <img src="./assets/images/uhc_btn.jpg" alt="Universal Health Care Law Information" class="w-full h-auto rounded-lg transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white font-medium text-sm">UHC Law</span>
+                    </div>
+                </a>
+                <a href="#" class="relative overflow-hidden group rounded-lg" aria-label="ARTA Compliance Information">
+                    <img src="./assets/images/arta_bnnr_sml.jpg" alt="ARTA Compliance Information" class="w-full h-auto rounded-lg transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white font-medium text-sm">ARTA Compliance</span>
+                    </div>
+                </a>
+                <a href="#" class="relative overflow-hidden group rounded-lg" aria-label="Check for Unclaimed Refunds">
+                    <img src="./assets/images/UnclaimedRefunds.jpg" alt="Check for Unclaimed Refunds" class="w-full h-auto rounded-lg transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <span class="text-white font-medium text-sm">Unclaimed Refunds</span>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Partner logos section -->
+            <div class="mt-16">
+                <h3 class="text-xl font-semibold text-gray-800 mb-6 text-center">Our Partners</h3>
+                <div class="partner-logos flex flex-wrap justify-center items-center gap-6 md:gap-16">
+                    <img src="./assets/images/logo3.png" alt="Partner Logo 1" class="partner-logo h-12 md:h-16 w-auto transition-all duration-300 hover:scale-110">
+                    <img src="./assets/images/logo4.png" alt="Partner Logo 2" class="partner-logo h-12 md:h-16 w-auto transition-all duration-300 hover:scale-110">
+                    <img src="./assets/images/logo5.png" alt="Partner Logo 3" class="partner-logo h-12 md:h-16 w-auto transition-all duration-300 hover:scale-110">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section extra-links">
-        <div class="container">
-            <h2>Quick Access & Partner Resources</h2>
-            <p>Find important links and information about our partners.</p>
-            <div class="image-links">
-                 <a href="#"><img src="./assets/images/konsulta.jpg" alt="Konsulta Program Information" class="content-image"></a>
-                 <a href="#"><img src="./assets/images/contact_btn.jpg" alt="Contact PhilHealth" class="content-image"></a>
-                 <a href="#"><img src="./assets/images/uhc_btn.jpg" alt="Universal Health Care Law Information" class="content-image"></a>
-                 <a href="#"><img src="./assets/images/arta_bnnr_sml.jpg" alt="ARTA Compliance Information" class="content-image"></a>
-                 <a href="#"><img src="./assets/images/UnclaimedRefunds.jpg" alt="Check for Unclaimed Refunds" class="content-image"></a>
+    <!-- Enhanced footer with better structure -->
+    <footer id="contact" class="footer pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h5 class="text-xl font-semibold mb-4">PhilHealth</h5>
+                    <p class="text-white/80 mb-4">Your partner in ensuring affordable and quality health services for every Filipino.</p>
+                    <div class="social-links flex gap-3">
+                        <a href="#" aria-label="Facebook" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="#" aria-label="YouTube" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="text-xl font-semibold mb-4">Quick Links</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-white/80 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#members" class="text-white/80 hover:text-white transition-colors">Membership</a></li>
+                        <li><a href="#services" class="text-white/80 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="./pages/contact.html" class="text-white/80 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h5 class="text-xl font-semibold mb-4">Legal</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-white/80 hover:text-white transition-colors">Privacy Notice</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-white transition-colors">Terms of Use</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-white transition-colors">Disclaimer</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-white transition-colors">Freedom of Information</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h5 class="text-xl font-semibold mb-4">Contact Us</h5>
+                    <ul class="space-y-2 text-white/80">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-envelope mt-1 text-white/60"></i>
+                            <span>info@philhealth.gov.ph</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-phone mt-1 text-white/60"></i>
+                            <span>(02) 8441-7442</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-white/60"></i>
+                            <span>PhilHealth Main Office, Citystate Centre, 709 Shaw Blvd., Pasig City</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="partner-logos">
-                 <img src="./assets/images/logo3.png" alt="Partner Logo 1" class="content-image partner-logo">
-                 <img src="./assets/images/logo4.png" alt="Partner Logo 2" class="content-image partner-logo">
-                 <img src="./assets/images/logo5.png" alt="Partner Logo 3" class="content-image partner-logo">
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact" class="footer">
-        <div class="container">
+            
             <div class="footer-nav">
                 <ul>
                     <li><a href="#about">About Us</a></li>
@@ -131,16 +447,293 @@
                     <li><a href="#">Disclaimer</a></li>
                 </ul>
             </div>
-            <div class="social-links">
-                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            
+            <div class="border-t border-white/20 pt-8">
+                <p>&copy; 2025 PhilHealth. All Rights Reserved.</p>
+                <p>Email: info@philhealth.gov.ph | Hotline: (02) 8441-7442</p>
+                <img src="./assets/images/NPCSeal_Portrait.jpg" alt="National Privacy Commission Seal" class="npc-seal">
+                <p class="disclosure">PhilHealth supports the call for greater transparency in public governance.</p>
             </div>
-            <p>&copy; 2025 PhilHealth. All Rights Reserved.</p>
-            <p>Email: info@philhealth.gov.ph | Hotline: (02) 8441-7442</p>
-            <img src="./assets/images/NPCSeal_Portrait.jpg" alt="National Privacy Commission Seal" class="npc-seal">
-            <p class="disclosure">PhilHealth supports the call for greater transparency in public governance.</p>
         </div>
     </footer>
+
+    <!-- Back to top button (User control) -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-secondary text-primary w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Help tooltip (Help and documentation) -->
+    <button id="help-button" class="fixed bottom-8 right-24 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110" aria-label="Get help">
+        <i class="fa-solid fa-question"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Page loading animation (Visibility of system status)
+            const pageLoader = document.getElementById('page-loader');
+            const loadingBar = document.getElementById('loading-bar');
+            
+            if (pageLoader && loadingBar) {
+                // Simulate loading progress
+                let progress = 0;
+                const interval = setInterval(() => {
+                    progress += 5;
+                    loadingBar.style.width = `${progress}%`;
+                    
+                    if (progress >= 100) {
+                        clearInterval(interval);
+                        // Add a small delay before hiding the loader
+                        setTimeout(() => {
+                            pageLoader.style.opacity = '0';
+                            setTimeout(() => {
+                                pageLoader.style.display = 'none';
+                            }, 500);
+                        }, 200);
+                    }
+                }, 50);
+            }
+            
+            // Mobile menu functionality (User control)
+            const menuButton = document.getElementById('mobile-menu-button');
+            const navMenu = document.getElementById('nav-menu');
+            
+            if (menuButton && navMenu) {
+                menuButton.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    if (navMenu.classList.contains('active')) {
+                        menuButton.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+                        menuButton.setAttribute('aria-label', 'Close menu');
+                    } else {
+                        menuButton.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                        menuButton.setAttribute('aria-label', 'Open menu');
+                    }
+                });
+            }
+            
+            // Show cookie consent banner after delay (User control and freedom)
+            setTimeout(() => {
+                const cookieConsent = document.getElementById('cookie-consent');
+                if (cookieConsent && !localStorage.getItem('cookieConsent')) {
+                    cookieConsent.style.transform = 'translateY(0)';
+                }
+            }, 2000);
+            
+            // Cookie consent button handlers
+            const acceptButton = document.getElementById('cookie-accept');
+            const settingsButton = document.getElementById('cookie-settings');
+            
+            if (acceptButton) {
+                acceptButton.addEventListener('click', () => {
+                    localStorage.setItem('cookieConsent', 'accepted');
+                    document.getElementById('cookie-consent').style.transform = 'translateY(100%)';
+                    
+                    // Show feedback toast (Visibility of system status)
+                    showToast('Cookie preferences saved', 'success');
+                });
+            }
+            
+            if (settingsButton) {
+                settingsButton.addEventListener('click', () => {
+                    // Here you would typically open a more detailed cookie settings modal
+                    alert('Cookie settings functionality would open a detailed preferences modal.');
+                    document.getElementById('cookie-consent').style.transform = 'translateY(100%)';
+                });
+            }
+            
+            // Show back-to-top button when scrolled down (User control)
+            window.addEventListener('scroll', function() {
+                const backToTop = document.getElementById('back-to-top');
+                if (backToTop) {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.remove('opacity-0', 'invisible');
+                    } else {
+                        backToTop.classList.add('opacity-0', 'invisible');
+                    }
+                }
+            });
+            
+            // Back to top functionality
+            const backToTop = document.getElementById('back-to-top');
+            if (backToTop) {
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+            
+            // Help button functionality (Help and documentation)
+            const helpButton = document.getElementById('help-button');
+            if (helpButton) {
+                helpButton.addEventListener('click', () => {
+                    // Create and display help modal
+                    const helpModal = document.createElement('div');
+                    helpModal.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-50';
+                    helpModal.innerHTML = `
+                        <div class="bg-white rounded-lg max-w-md w-full max-h-[80vh] overflow-y-auto p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-xl font-semibold text-gray-800">Help & Support</h3>
+                                <button class="close-help text-gray-500 hover:text-gray-700">
+                                    <i class="fa-solid fa-xmark text-xl"></i>
+                                </button>
+                            </div>
+                            <div class="mb-4">
+                                <h4 class="font-medium text-gray-700 mb-2">Quick Help</h4>
+                                <ul class="space-y-2 text-gray-600 text-sm">
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa-solid fa-circle-question mt-1 text-primary"></i>
+                                        <span>To navigate the website, use the menu at the top of the page.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa-solid fa-circle-question mt-1 text-primary"></i>
+                                        <span>For membership inquiries, visit the <a href="#members" class="text-primary hover:underline">Membership</a> section.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i class="fa-solid fa-circle-question mt-1 text-primary"></i>
+                                        <span>For benefit details, check the <a href="#services" class="text-primary hover:underline">Services</a> section.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="mb-4">
+                                <h4 class="font-medium text-gray-700 mb-2">Contact Support</h4>
+                                <p class="text-gray-600 text-sm mb-2">Need more help? Contact our support team:</p>
+                                <a href="./pages/contact.html" class="btn bg-primary text-white text-sm hover:bg-primary/90 inline-block">Contact Support</a>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-700 mb-2">Hotline</h4>
+                                <p class="text-gray-600 text-sm">(02) 8441-7442</p>
+                                <p class="text-gray-500 text-xs">Available Monday-Friday, 8am to 5pm</p>
+                            </div>
+                        </div>
+                    `;
+                    document.body.appendChild(helpModal);
+                    
+                    // Handle close button
+                    const closeButton = helpModal.querySelector('.close-help');
+                    if (closeButton) {
+                        closeButton.addEventListener('click', () => {
+                            document.body.removeChild(helpModal);
+                        });
+                    }
+                    
+                    // Close on outside click
+                    helpModal.addEventListener('click', (e) => {
+                        if (e.target === helpModal) {
+                            document.body.removeChild(helpModal);
+                        }
+                    });
+                });
+            }
+            
+            // Animate elements when they come into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.1
+            });
+            
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Create and append a toast container
+            const toastContainer = document.createElement('div');
+            toastContainer.className = 'fixed bottom-4 right-4 z-50';
+            document.body.appendChild(toastContainer);
+            
+            // Function to show toast notifications
+            window.showToast = function(message, type = 'info') {
+                const toast = document.createElement('div');
+                toast.className = `bg-white border-l-4 p-4 mb-3 shadow-lg rounded flex items-center max-w-xs animate-fade-in ${
+                    type === 'success' ? 'border-green-500' :
+                    type === 'error' ? 'border-red-500' :
+                    'border-blue-500'
+                }`;
+                
+                const icon = document.createElement('i');
+                icon.className = `mr-3 text-lg ${
+                    type === 'success' ? 'fa-solid fa-check-circle text-green-500' :
+                    type === 'error' ? 'fa-solid fa-exclamation-circle text-red-500' :
+                    'fa-solid fa-info-circle text-blue-500'
+                }`;
+                toast.appendChild(icon);
+                
+                const textSpan = document.createElement('span');
+                textSpan.className = 'text-gray-800 text-sm';
+                textSpan.textContent = message;
+                toast.appendChild(textSpan);
+                
+                toastContainer.appendChild(toast);
+                
+                setTimeout(() => {
+                    toast.classList.add('opacity-0');
+                    setTimeout(() => {
+                        toastContainer.removeChild(toast);
+                    }, 300);
+                }, 5000);
+            };
+            
+            // Add smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#') {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            window.scrollTo({
+                                top: target.offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                            
+                            // Update URL without refreshing
+                            history.pushState(null, null, href);
+                        }
+                    }
+                });
+            });
+        });
+        
+        // Define CSS animations
+        document.head.insertAdjacentHTML('beforeend', `
+            <style>
+                @keyframes fade-in {
+                    from { opacity: 0; transform: translateY(20px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+                
+                .animate-fade-in {
+                    animation: fade-in 0.6s ease forwards;
+                    opacity: 0;
+                }
+                
+                .animation-delay-200 {
+                    animation-delay: 200ms;
+                }
+                
+                .animation-delay-400 {
+                    animation-delay: 400ms;
+                }
+                
+                @keyframes ping {
+                    75%, 100% {
+                        transform: scale(1.5);
+                        opacity: 0;
+                    }
+                }
+                
+                .animate-ping {
+                    animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+                }
+            </style>
+        `);
+    </script>
 </body>
 </html>

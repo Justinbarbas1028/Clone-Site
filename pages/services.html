@@ -3,18 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PhilHealth Services - Learn about our benefits, claims processing, and more">
     <title>Services | PhilHealth</title>
+    <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#006d38',
+                        secondary: '#ffdd57',
+                        light: '#f5f9f6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
-    <header class="navbar">
+<body class="font-sans bg-light text-gray-800">
+    <div class="skip-links">
+        <a href="#main-content" class="skip-link">Skip to Content</a>
+        <a href="#nav-menu" class="skip-link">Skip to Menu</a>
+    </div>
+
+    <header class="navbar relative shadow-md">
         <div class="container">
-            <img src="../assets/images/logo.png" alt="" class="logo">
-                <ul class="nav-links">
+            <img src="../assets/images/logo.png" alt="PhilHealth Logo" class="logo">
+            
+            <button id="mobile-menu-button" class="md:hidden text-white bg-primary p-2 rounded-md" aria-label="Open menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            
+            <nav id="nav-menu" class="md:block">
+                <ul class="nav-links md:flex">
                     <li><a href="../index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="membership.html">Membership</a></li>
-                    <li><a href="services.html">Services</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
                     <li><a href="news.html">News</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -22,43 +54,453 @@
         </div>
     </header>
 
-    <section class="section">
-        <div class="container">
-            <h2>Our Services</h2>
-            <ul class="services-list">
-                <li>
-                    <h4>Benefits Packages</h4>
-                    <p>Financial coverage for hospitalization, outpatient care, and more.</p>
-                </li>
-                <li>
-                    <h4>Claims Processing</h4>
-                    <p>Fast and reliable processing of claims with accredited facilities.</p>
-                </li>
-                <li>
-                    <h4>Online Registration</h4>
-                    <p>Easy online application for new members through the Member Portal.</p>
-                </li>
-                <li>
-                    <h4>Health Care Institution Accreditation</h4>
-                    <p>PhilHealth-accredited hospitals and clinics nationwide.</p>
-                </li>
-                <li>
-                    <h4>Member Inquiry</h4>
-                    <p>Check your contribution status, benefits, and more via online tools.</p>
-                </li>
-                <li>
-                    <h4>Employer Services</h4>
-                    <p>Assistance for employers to manage employee contributions and records.</p>
-                </li>
-            </ul>
+    <section class="bg-primary/10 py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col items-center">
+                <h1 class="text-3xl md:text-4xl font-bold text-primary mb-4">Our Services</h1>
+                <div class="flex items-center text-sm text-gray-600">
+                    <a href="../index.html" class="hover:text-primary transition-colors">Home</a>
+                    <span class="mx-2">
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </span>
+                    <span class="font-medium text-primary">Services</span>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 PhilHealth. All Rights Reserved.</p>
-            <p>Email: info@philhealth.gov.ph | Hotline: (02) 8441-7442</p>
+    <section id="main-content" class="section py-12 md:py-16 fade-in">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center mb-10">
+                <p class="text-lg text-gray-600">PhilHealth offers a comprehensive range of benefits and services aimed at providing accessible healthcare to all Filipinos. Explore our offerings below and learn how we can support your healthcare needs.</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-2 mb-10">
+                <button class="service-filter active bg-primary text-white px-4 py-2 rounded-full text-sm font-medium transition-all hover:bg-primary/90" data-filter="all">
+                    All Services
+                </button>
+                <button class="service-filter bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium transition-all hover:bg-gray-300" data-filter="benefits">
+                    Benefits
+                </button>
+                <button class="service-filter bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium transition-all hover:bg-gray-300" data-filter="claims">
+                    Claims
+                </button>
+                <button class="service-filter bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium transition-all hover:bg-gray-300" data-filter="online">
+                    Online Services
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="service-item transition-all duration-300" data-category="benefits">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden h-full hover:shadow-lg transition-shadow duration-300">
+                        <div class="p-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fa-solid fa-briefcase-medical text-xl text-primary"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="font-semibold text-lg text-gray-800 mb-2">Benefits Packages</h3>
+                                    <p class="text-gray-600 text-sm mb-3">Financial coverage for hospitalization, outpatient care, and more.</p>
+                                    <div class="mt-auto">
+                                        <button class="text-primary text-sm font-medium hover:underline flex items-center" 
+                                                onclick="toggleServiceDetails('benefits-details')">
+                                            Learn more <i class="fa-solid fa-chevron-right text-xs ml-1"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="benefits-details" class="hidden bg-gray-50 border-t border-gray-100 p-4 text-sm">
+                            <h4 class="font-medium text-primary mb-2">Available Benefit Packages</h4>
+                            <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                                <li>Inpatient Hospital Care</li>
+                                <li>Outpatient Benefits</li>
+                                <li>Maternity Care</li>
+                                <li>Dialysis, Chemotherapy, and Radiotherapy</li>
+                                <li>Special Disease Packages (Z Benefits)</li>
+                            </ul>
+                            <a href="#" class="inline-flex items-center text-primary hover:underline text-xs mt-3">
+                                View complete benefits list <i class="fa-solid fa-arrow-right text-xs ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-item transition-all duration-300" data-category="claims">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden h-full hover:shadow-lg transition-shadow duration-300">
+                        <div class="p-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fa-solid fa-file-invoice text-xl text-primary"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="font-semibold text-lg text-gray-800 mb-2">Claims Processing</h3>
+                                    <p class="text-gray-600 text-sm mb-3">Fast and reliable processing of claims with accredited facilities.</p>
+                                    <div class="mt-auto">
+                                        <button class="text-primary text-sm font-medium hover:underline flex items-center" 
+                                                onclick="toggleServiceDetails('claims-details')">
+                                            Learn more <i class="fa-solid fa-chevron-right text-xs ml-1"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="claims-details" class="hidden bg-gray-50 border-t border-gray-100 p-4 text-sm">
+                            <h4 class="font-medium text-primary mb-2">Claims Process</h4>
+                            <p class="text-gray-600 mb-2">For direct filing, submit your claim within 60 calendar days after discharge. For reimbursement, submit your claim within 120 calendar days.</p>
+                            <h4 class="font-medium text-primary mb-2 mt-3">Required Documents</h4>
+                            <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                                <li>PhilHealth Benefit Eligibility Form</li>
+                                <li>Member Data Record</li>
+                                <li>Medical certificate or clinical abstracts</li>
+                                <li>Official receipts for hospital expenses</li>
+                            </ul>
+                            <a href="#" class="inline-flex items-center text-primary hover:underline text-xs mt-3">
+                                Download claims forms <i class="fa-solid fa-download text-xs ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-item transition-all duration-300" data-category="online">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden h-full hover:shadow-lg transition-shadow duration-300">
+                        <div class="p-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fa-solid fa-user-plus text-xl text-primary"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="font-semibold text-lg text-gray-800 mb-2">Online Registration</h3>
+                                    <p class="text-gray-600 text-sm mb-3">Easy online application for new members through the Member Portal.</p>
+                                    <div class="mt-auto">
+                                        <button class="text-primary text-sm font-medium hover:underline flex items-center" 
+                                                onclick="toggleServiceDetails('registration-details')">
+                                            Learn more <i class="fa-solid fa-chevron-right text-xs ml-1"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="registration-details" class="hidden bg-gray-50 border-t border-gray-100 p-4 text-sm">
+                            <h4 class="font-medium text-primary mb-2">Registration Steps</h4>
+                            <ol class="list-decimal pl-5 space-y-1 text-gray-600">
+                                <li>Visit the PhilHealth Member Portal</li>
+                                <li>Select "Register as New Member"</li>
+                                <li>Fill out the electronic Personal Record form</li>
+                                <li>Upload required documents</li>
+                                <li>Submit your application</li>
+                                <li>Receive your PhilHealth ID number via email</li>
+                            </ol>
+                            <a href="#" class="inline-flex items-center text-primary hover:underline text-xs mt-3">
+                                Go to Member Portal <i class="fa-solid fa-external-link text-xs ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-item transition-all duration-300" data-category="benefits">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden h-full hover:shadow-lg transition-shadow duration-300">
+                        <div class="p-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fa-solid fa-hospital text-xl text-primary"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="font-semibold text-lg text-gray-800 mb-2">Healthcare Institution Accreditation</h3>
+                                    <p class="text-gray-600 text-sm mb-3">PhilHealth-accredited hospitals and clinics nationwide.</p>
+                                    <div class="mt-auto">
+                                        <button class="text-primary text-sm font-medium hover:underline flex items-center" 
+                                                onclick="toggleServiceDetails('accreditation-details')">
+                                            Learn more <i class="fa-solid fa-chevron-right text-xs ml-1"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="accreditation-details" class="hidden bg-gray-50 border-t border-gray-100 p-4 text-sm">
+                            <h4 class="font-medium text-primary mb-2">Accredited Facilities</h4>
+                            <p class="text-gray-600 mb-2">PhilHealth has accredited over 8,000 healthcare institutions nationwide, including:</p>
+                            <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                                <li>Primary care facilities</li>
+                                <li>Hospitals (Levels 1-4)</li>
+                                <li>Outpatient clinics</li>
+                                <li>Dialysis centers</li>
+                                <li>Ambulatory surgical centers</li>
+                            </ul>
+                            <a href="#" class="inline-flex items-center text-primary hover:underline text-xs mt-3">
+                                Find nearby accredited facilities <i class="fa-solid fa-map-marker-alt text-xs ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-item transition-all duration-300" data-category="online">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden h-full hover:shadow-lg transition-shadow duration-300">
+                        <div class="p-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fa-solid fa-magnifying-glass text-xl text-primary"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="font-semibold text-lg text-gray-800 mb-2">Member Inquiry</h3>
+                                    <p class="text-gray-600 text-sm mb-3">Check your contribution status, benefits, and more via online tools.</p>
+                                    <div class="mt-auto">
+                                        <button class="text-primary text-sm font-medium hover:underline flex items-center" 
+                                                onclick="toggleServiceDetails('inquiry-details')">
+                                            Learn more <i class="fa-solid fa-chevron-right text-xs ml-1"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="inquiry-details" class="hidden bg-gray-50 border-t border-gray-100 p-4 text-sm">
+                            <h4 class="font-medium text-primary mb-2">Information Available Online</h4>
+                            <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                                <li>Contribution records and payment history</li>
+                                <li>Membership status and eligibility</li>
+                                <li>Benefits availed and remaining benefits</li>
+                                <li>Claims status tracking</li>
+                                <li>Personal information updates</li>
+                            </ul>
+                            <a href="#" class="inline-flex items-center text-primary hover:underline text-xs mt-3">
+                                Log in to Member Portal <i class="fa-solid fa-sign-in-alt text-xs ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-item transition-all duration-300" data-category="online">
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden h-full hover:shadow-lg transition-shadow duration-300">
+                        <div class="p-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fa-solid fa-building text-xl text-primary"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h3 class="font-semibold text-lg text-gray-800 mb-2">Employer Services</h3>
+                                    <p class="text-gray-600 text-sm mb-3">Assistance for employers to manage employee contributions and records.</p>
+                                    <div class="mt-auto">
+                                        <button class="text-primary text-sm font-medium hover:underline flex items-center" 
+                                                onclick="toggleServiceDetails('employer-details')">
+                                            Learn more <i class="fa-solid fa-chevron-right text-xs ml-1"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="employer-details" class="hidden bg-gray-50 border-t border-gray-100 p-4 text-sm">
+                            <h4 class="font-medium text-primary mb-2">Employer Portal Features</h4>
+                            <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                                <li>Employee roster management</li>
+                                <li>Online contribution reporting</li>
+                                <li>Payment remittance</li>
+                                <li>Generation of statement of premium accounts</li>
+                                <li>Certificates of contribution payments</li>
+                            </ul>
+                            <a href="#" class="inline-flex items-center text-primary hover:underline text-xs mt-3">
+                                Employer Portal Access <i class="fa-solid fa-external-link text-xs ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md overflow-hidden mt-12 max-w-4xl mx-auto">
+                <div class="p-6 md:p-8">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">How to Access Our Services</h2>
+                    <p class="text-gray-600 mb-6">PhilHealth offers multiple channels to access our services, ensuring convenience for all members:</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fa-solid fa-globe text-2xl text-primary"></i>
+                            </div>
+                            <h4 class="font-medium mb-2">Online</h4>
+                            <p class="text-sm text-gray-600">Visit our Member Portal at philhealth.gov.ph</p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fa-solid fa-building-user text-2xl text-primary"></i>
+                            </div>
+                            <h4 class="font-medium mb-2">In-Person</h4>
+                            <p class="text-sm text-gray-600">Visit any PhilHealth Local Health Insurance Office (LHIO)</p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fa-solid fa-phone text-2xl text-primary"></i>
+                            </div>
+                            <h4 class="font-medium mb-2">Call Center</h4>
+                            <p class="text-sm text-gray-600">Call our hotline at (02) 8441-7442</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Need Assistance?</h2>
+                <p class="text-gray-600 mb-6 max-w-2xl mx-auto">Our customer service representatives are ready to help you with any questions or concerns regarding our services.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="contact.html" class="btn bg-primary text-white hover:bg-primary/90">Contact Support</a>
+                    <a href="#" class="btn bg-white text-primary hover:bg-gray-50 border border-primary">Download Service Guide</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer bg-primary text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h5 class="text-xl font-semibold mb-4">PhilHealth</h5>
+                    <p class="text-white/80 mb-4">Your partner in ensuring affordable and quality health services for every Filipino.</p>
+                    <div class="social-links flex gap-3">
+                        <a href="#" aria-label="Facebook" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="#" aria-label="YouTube" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="text-xl font-semibold mb-4">Quick Links</h5>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-white/80 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-white/80 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="membership.html" class="text-white/80 hover:text-white transition-colors">Membership</a></li>
+                        <li><a href="news.html" class="text-white/80 hover:text-white transition-colors">News</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h5 class="text-xl font-semibold mb-4">Legal</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-white/80 hover:text-white transition-colors">Privacy Notice</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-white transition-colors">Terms of Use</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-white transition-colors">Disclaimer</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-white transition-colors">Freedom of Information</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h5 class="text-xl font-semibold mb-4">Contact Hours</h5>
+                    <ul class="space-y-2 text-white/80">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-clock mt-1 mr-3"></i>
+                            <span>Monday - Friday: 8am to 5pm</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-calendar mt-1 mr-3"></i>
+                            <span>Closed on weekends and public holidays</span>
+                        </li>
+                        <li class="flex items-start mt-4">
+                            <i class="fa-solid fa-headset mt-1 mr-3"></i>
+                            <span>24/7 Emergency Helpline: (02) 8441-7444</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <p>&copy; 2025 PhilHealth. All Rights Reserved.</p>
+                    <p class="text-white/70 text-sm mt-1">PhilHealth supports the call for greater transparency in public governance.</p>
+                </div>
+                <img src="../assets/images/NPCSeal_Portrait.jpg" alt="National Privacy Commission Seal" class="npc-seal w-20 h-auto">
+            </div>
         </div>
     </footer>
+
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-secondary text-primary w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.getElementById('mobile-menu-button');
+            const navMenu = document.getElementById('nav-menu');
+            
+            if (menuButton && navMenu) {
+                menuButton.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.style.display = 'block';
+                        menuButton.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+                        menuButton.setAttribute('aria-label', 'Close menu');
+                    } else {
+                        navMenu.style.display = '';
+                        menuButton.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                        menuButton.setAttribute('aria-label', 'Open menu');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', function() {
+                const backToTop = document.getElementById('back-to-top');
+                if (backToTop) {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.remove('opacity-0', 'invisible');
+                    } else {
+                        backToTop.classList.add('opacity-0', 'invisible');
+                    }
+                }
+            });
+            
+            const backToTop = document.getElementById('back-to-top');
+            if (backToTop) {
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+            
+            window.toggleServiceDetails = function(detailsId) {
+                const detailsElement = document.getElementById(detailsId);
+                if (detailsElement) {
+                    detailsElement.classList.toggle('hidden');
+                    
+                    if (!detailsElement.classList.contains('hidden')) {
+                        setTimeout(() => {
+                            detailsElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }, 100);
+                    }
+                }
+            };
+            
+            const filterButtons = document.querySelectorAll('.service-filter');
+            const serviceItems = document.querySelectorAll('.service-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('active', 'bg-primary', 'text-white');
+                        btn.classList.add('bg-gray-200', 'text-gray-700');
+                    });
+                    this.classList.add('active', 'bg-primary', 'text-white');
+                    this.classList.remove('bg-gray-200', 'text-gray-700');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    serviceItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                            item.classList.add('fade-in');
+                        } else {
+                            item.style.display = 'none';
+                            item.classList.remove('fade-in');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>

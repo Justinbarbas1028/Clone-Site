@@ -3,61 +3,455 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact PhilHealth - Get in touch with us for inquiries and support">
     <title>Contact | PhilHealth</title>
+    <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#006d38',
+                        secondary: '#ffdd57',
+                        light: '#f5f9f6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
-    <header class="navbar">
+<body class="font-sans bg-light text-gray-800">
+    <div class="skip-links">
+        <a href="#main-content" class="skip-link">Skip to Content</a>
+        <a href="#nav-menu" class="skip-link">Skip to Menu</a>
+    </div>
+
+    <header class="navbar relative shadow-md">
         <div class="container">
-            <img src="../assets/images/logo.png" alt="" class="logo">
-            <nav>
-                <ul class="nav-links">
+            <img src="../assets/images/logo.png" alt="PhilHealth Logo" class="logo">
+            <button id="mobile-menu-button" class="md:hidden text-white bg-primary p-2 rounded-md" aria-label="Open menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <nav id="nav-menu" class="md:block">
+                <ul class="nav-links md:flex">
                     <li><a href="../index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="membership.html">Membership</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="news.html">News</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="section">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <p>If you have any questions, concerns, or need assistance, feel free to get in touch with us:</p>
+    <section id="main-content" class="section py-12 md:py-16 fade-in">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-semibold text-primary text-center mb-8">Contact Us</h2>
+            <p class="text-lg text-gray-600 text-center max-w-2xl mx-auto mb-12">If you have any questions, concerns, or need assistance, feel free to get in touch with us using any of the methods below:</p>
 
-            <div class="cards">
-                <div class="card">
-                    <h4>Hotline</h4>
-                    <p>(02) 8441-7442</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div class="card hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fa-solid fa-phone text-2xl text-primary"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold text-primary mb-3">Hotline</h4>
+                    <p class="text-gray-600">(02) 8441-7442</p>
+                    <p class="text-sm text-gray-500 mt-2">Available Monday-Friday, 8am to 5pm</p>
                 </div>
-                <div class="card">
-                    <h4>Email</h4>
-                    <p>info@philhealth.gov.ph</p>
+                <div class="card hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fa-solid fa-envelope text-2xl text-primary"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold text-primary mb-3">Email</h4>
+                    <p class="text-gray-600">info@philhealth.gov.ph</p>
+                    <p class="text-sm text-gray-500 mt-2">We typically respond within 24-48 hours</p>
                 </div>
-                <div class="card">
-                    <h4>Office Address</h4>
-                    <p>PhilHealth Main Office, Citystate Centre, 709 Shaw Blvd., Pasig City, Philippines</p>
+                <div class="card hover:-translate-y-2 transition-all duration-300">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fa-solid fa-location-dot text-2xl text-primary"></i>
+                    </div>
+                    <h4 class="text-xl font-semibold text-primary mb-3">Office Address</h4>
+                    <p class="text-gray-600">PhilHealth Main Office, Citystate Centre, 709 Shaw Blvd., Pasig City, Philippines</p>
+                    <a href="https://maps.google.com" target="_blank" rel="noopener" class="text-primary text-sm mt-2 inline-flex items-center hover:underline">
+                        View on map <i class="fa-solid fa-external-link text-xs ml-1"></i>
+                    </a>
                 </div>
             </div>
 
-            <h3>Send a Message</h3>
-            <form class="contact-form" action="#" method="POST">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md">
+                <h3 class="text-2xl font-semibold mb-6 text-center">Send a Message</h3>
+                <div class="mb-6 text-center">
+                    <div class="tooltip inline-block">
+                        <span class="text-sm text-gray-500 flex items-center gap-1 cursor-help">
+                            <i class="fa-solid fa-circle-info text-primary"></i> How to use this form
+                        </span>
+                        <div class="tooltip-text">
+                            Fill in all required fields marked with *. Once submitted, you'll receive a confirmation email with your inquiry details.
+                        </div>
+                    </div>
+                </div>
+                <form id="contact-form" class="contact-form" novalidate>
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700 mb-1 text-sm font-medium">Your Name <span class="text-red-500">*</span></label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            required 
+                            minlength="2" 
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                            placeholder="Enter your full name"
+                        >
+                        <div class="validation-message" id="name-error">Please enter your name (minimum 2 characters).</div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 mb-1 text-sm font-medium">Your Email <span class="text-red-500">*</span></label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            required 
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                            placeholder="Enter your email address"
+                        >
+                        <div class="validation-message" id="email-error">Please enter a valid email address.</div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="subject" class="block text-gray-700 mb-1 text-sm font-medium">Subject <span class="text-red-500">*</span></label>
+                        <select 
+                            id="subject" 
+                            name="subject" 
+                            required
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                        >
+                            <option value="">Select a subject</option>
+                            <option value="inquiry">General Inquiry</option>
+                            <option value="membership">Membership</option>
+                            <option value="benefits">Benefits and Claims</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="complaint">Complaint</option>
+                        </select>
+                        <div class="validation-message" id="subject-error">Please select a subject.</div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-700 mb-1 text-sm font-medium">Your Message <span class="text-red-500">*</span></label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            rows="5" 
+                            required 
+                            minlength="10" 
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                            placeholder="How can we help you?"
+                        ></textarea>
+                        <div class="validation-message" id="message-error">Please enter your message (minimum 10 characters).</div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="flex items-start gap-2">
+                            <input 
+                                type="checkbox" 
+                                id="consent" 
+                                name="consent" 
+                                required 
+                                class="mt-1"
+                            >
+                            <span class="text-sm text-gray-600">
+                                I consent to the processing of my personal data according to the <a href="#" class="text-primary hover:underline">Privacy Policy</a> <span class="text-red-500">*</span>
+                            </span>
+                        </label>
+                        <div class="validation-message" id="consent-error">You must consent to the privacy policy.</div>
+                    </div>
+                    
+                    <div class="flex justify-center">
+                        <button 
+                            type="submit" 
+                            id="submit-btn"
+                            class="btn bg-primary text-white hover:bg-primary/90 min-w-[150px] flex items-center justify-center gap-2"
+                        >
+                            <span>Send Message</span>
+                        </button>
+                    </div>
+                </form>
+                <div id="success-message" class="hidden bg-green-50 border border-green-200 text-green-800 p-4 rounded-lg mt-6 text-center">
+                    <i class="fa-solid fa-circle-check text-2xl text-green-600 mb-2"></i>
+                    <h4 class="font-medium">Thank you for your message!</h4>
+                    <p class="text-sm mt-1">We've received your inquiry and will get back to you soon.</p>
+                </div>
+                <div id="error-message" class="hidden bg-red-50 border border-red-200 text-red-800 p-4 rounded-lg mt-6 text-center">
+                    <i class="fa-solid fa-circle-exclamation text-2xl text-red-600 mb-2"></i>
+                    <h4 class="font-medium">There was a problem sending your message</h4>
+                    <p class="text-sm mt-1">Please try again or contact us directly via phone or email.</p>
+                    <button id="retry-btn" class="text-primary underline text-sm mt-2">Try Again</button>
+                </div>
+            </div>
+            <div class="mt-16">
+                <h3 class="text-2xl font-semibold text-center mb-8">Frequently Asked Questions</h3>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="faq-question w-full text-left p-4 font-medium text-gray-800 flex justify-between items-center">
+                            How can I check my PhilHealth contributions?
+                            <i class="fa-solid fa-chevron-down text-primary transition-transform"></i>
+                        </button>
+                        <div class="faq-answer bg-gray-50 p-4 text-gray-600 text-sm hidden">
+                            You can check your PhilHealth contributions through our Member Portal, by visiting any PhilHealth Local Health Insurance Office (LHIO), or by calling our hotline at (02) 8441-7442.
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="faq-question w-full text-left p-4 font-medium text-gray-800 flex justify-between items-center">
+                            How do I file a claim with PhilHealth?
+                            <i class="fa-solid fa-chevron-down text-primary transition-transform"></i>
+                        </button>
+                        <div class="faq-answer bg-gray-50 p-4 text-gray-600 text-sm hidden">
+                            For most hospital admissions, claims are automatically filed by accredited hospitals. For other scenarios, visit our Services page for detailed information on the claims process or contact your local PhilHealth office.
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <button class="faq-question w-full text-left p-4 font-medium text-gray-800 flex justify-between items-center">
+                            What documents do I need to register as a member?
+                            <i class="fa-solid fa-chevron-down text-primary transition-transform"></i>
+                        </button>
+                        <div class="faq-answer bg-gray-50 p-4 text-gray-600 text-sm hidden">
+                            Required documents vary depending on your membership category. Generally, you need a valid ID, completed registration form, and proof of earnings. Visit our Membership page for specific requirements for your category.
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 PhilHealth. All Rights Reserved.</p>
-            <p>Email: info@philhealth.gov.ph | Hotline: (02) 8441-7442</p>
+    <footer class="footer bg-primary text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h5 class="text-xl font-semibold mb-4">PhilHealth</h5>
+                    <p class="text-white/80 mb-4">Your partner in ensuring affordable and quality health services for every Filipino.</p>
+                    <div class="social-links flex gap-3">
+                        <a href="#" aria-label="Facebook" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="#" aria-label="YouTube" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="text-xl font-semibold mb-4">Quick Links</h5>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-white/80 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-white/80 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="membership.html" class="text-white/80 hover:text-white transition-colors">Membership</a></li>
+                        <li><a href="services.html" class="text-white/80 hover:text-white transition-colors">Services</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-xl font-semibold mb-4">Legal</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-white/80 hover:text-white transition-colors">Privacy Notice</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-white transition-colors">Terms of Use</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-white transition-colors">Disclaimer</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-white transition-colors">Freedom of Information</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-xl font-semibold mb-4">Contact Hours</h5>
+                    <ul class="space-y-2 text-white/80">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-clock mt-1 mr-3"></i>
+                            <span>Monday - Friday: 8am to 5pm</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-calendar mt-1 mr-3"></i>
+                            <span>Closed on weekends and public holidays</span>
+                        </li>
+                        <li class="flex items-start mt-4">
+                            <i class="fa-solid fa-headset mt-1 mr-3"></i>
+                            <span>24/7 Emergency Helpline: (02) 8441-7444</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <p>&copy; 2025 PhilHealth. All Rights Reserved.</p>
+                    <p class="text-white/70 text-sm mt-1">PhilHealth supports the call for greater transparency in public governance.</p>
+                </div>
+                <img src="../assets/images/NPCSeal_Portrait.jpg" alt="National Privacy Commission Seal" class="npc-seal w-20 h-auto">
+            </div>
         </div>
     </footer>
+
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-secondary text-primary w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <div id="toast" class="toast">
+        <div class="flex items-center">
+            <i class="fa-solid fa-check-circle mr-2"></i>
+            <span id="toast-message">Message sent successfully!</span>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.getElementById('mobile-menu-button');
+            const navMenu = document.getElementById('nav-menu');
+            if (menuButton && navMenu) {
+                menuButton.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.style.display = 'block';
+                        menuButton.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+                        menuButton.setAttribute('aria-label', 'Close menu');
+                    } else {
+                        navMenu.style.display = '';
+                        menuButton.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                        menuButton.setAttribute('aria-label', 'Open menu');
+                    }
+                });
+            }
+            window.addEventListener('scroll', function() {
+                const backToTop = document.getElementById('back-to-top');
+                if (backToTop) {
+                    if (window.scrollY > 300) {
+                        backToTop.classList.remove('opacity-0', 'invisible');
+                    } else {
+                        backToTop.classList.add('opacity-0', 'invisible');
+                    }
+                }
+            });
+            const backToTop = document.getElementById('back-to-top');
+            if (backToTop) {
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+            const contactForm = document.getElementById('contact-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+            const retryBtn = document.getElementById('retry-btn');
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    let isValid = true;
+                    const name = document.getElementById('name');
+                    const email = document.getElementById('email');
+                    const subject = document.getElementById('subject');
+                    const message = document.getElementById('message');
+                    const consent = document.getElementById('consent');
+                    if (!name.value.trim() || name.value.trim().length < 2) {
+                        document.getElementById('name-error').style.display = 'block';
+                        name.classList.add('border-red-500');
+                        isValid = false;
+                    } else {
+                        document.getElementById('name-error').style.display = 'none';
+                        name.classList.remove('border-red-500');
+                    }
+                    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!email.value.trim() || !emailPattern.test(email.value.trim())) {
+                        document.getElementById('email-error').style.display = 'block';
+                        email.classList.add('border-red-500');
+                        isValid = false;
+                    } else {
+                        document.getElementById('email-error').style.display = 'none';
+                        email.classList.remove('border-red-500');
+                    }
+                    if (!subject.value) {
+                        document.getElementById('subject-error').style.display = 'block';
+                        subject.classList.add('border-red-500');
+                        isValid = false;
+                    } else {
+                        document.getElementById('subject-error').style.display = 'none';
+                        subject.classList.remove('border-red-500');
+                    }
+                    if (!message.value.trim() || message.value.trim().length < 10) {
+                        document.getElementById('message-error').style.display = 'block';
+                        message.classList.add('border-red-500');
+                        isValid = false;
+                    } else {
+                        document.getElementById('message-error').style.display = 'none';
+                        message.classList.remove('border-red-500');
+                    }
+                    if (!consent.checked) {
+                        document.getElementById('consent-error').style.display = 'block';
+                        isValid = false;
+                    } else {
+                        document.getElementById('consent-error').style.display = 'none';
+                    }
+                    if (isValid) {
+                        submitBtn.disabled = true;
+                        submitBtn.innerHTML = '<span class="spinner"></span> Sending...';
+                        setTimeout(function() {
+                            const isSuccess = Math.random() > 0.05;
+                            if (isSuccess) {
+                                contactForm.reset();
+                                contactForm.style.display = 'none';
+                                successMessage.classList.remove('hidden');
+                                toastMessage.textContent = 'Message sent successfully!';
+                                toast.classList.add('success', 'show');
+                                setTimeout(() => {
+                                    toast.classList.remove('show');
+                                }, 5000);
+                            } else {
+                                errorMessage.classList.remove('hidden');
+                                contactForm.style.display = 'none';
+                                toastMessage.textContent = 'Error sending message. Please try again.';
+                                toast.classList.add('error', 'show');
+                                setTimeout(() => {
+                                    toast.classList.remove('show');
+                                }, 5000);
+                            }
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = 'Send Message';
+                        }, 1500);
+                    }
+                });
+                if (retryBtn) {
+                    retryBtn.addEventListener('click', function() {
+                        errorMessage.classList.add('hidden');
+                        contactForm.style.display = 'flex';
+                    });
+                }
+            }
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            if (faqQuestions.length > 0) {
+                faqQuestions.forEach(question => {
+                    question.addEventListener('click', function() {
+                        const answer = this.nextElementSibling;
+                        const icon = this.querySelector('i');
+                        if (answer.classList.contains('hidden')) {
+                            answer.classList.remove('hidden');
+                            answer.style.maxHeight = answer.scrollHeight + 'px';
+                            icon.style.transform = 'rotate(180deg)';
+                        } else {
+                            answer.classList.add('hidden');
+                            answer.style.maxHeight = '0';
+                            icon.style.transform = 'rotate(0)';
+                        }
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
