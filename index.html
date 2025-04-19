@@ -10,10 +10,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <!-- Accessibility Skip Links -->
+    <div class="skip-links">
+        <a href="#main-content" class="skip-link">Skip to Content</a>
+        <a href="#nav-menu" class="skip-link">Skip to Menu</a>
+    </div>
+
     <header class="navbar">
         <div class="container">
-            <img src="./assets/images/logo.png" alt="" class="logo">
-            <nav>
+            <img src="./assets/images/logo.png" alt="PhilHealth Logo" class="logo">
+            <nav id="nav-menu">
                 <ul class="nav-links">
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#members">Membership</a></li>
@@ -25,37 +31,38 @@
         </div>
     </header>
 
-    <section class="hero">
+    <section id="main-content" class="hero">
         <div class="container">
-            <h2>Protecting Every Filipino</h2>
-            <p>Your partner in health insurance, now and in the future.</p>
-            <a href="#membership" class="btn">Become a Member</a>
+            <h2>Accessible Healthcare for Every Filipino</h2>
+            <p>Your partner in ensuring affordable and quality health services.</p>
+            <a href="#members" class="btn">Explore Membership</a>
         </div>
     </section>
 
     <section id="about" class="section">
         <div class="container">
             <h3><a href="./pages/about.html">About PhilHealth</a></h3>
-            <p>PhilHealth is committed to delivering universal health coverage and ensuring that every Filipino has access to affordable, quality healthcare.</p>
+            <p>Learn about our commitment to universal health coverage and accessible, quality healthcare for all Filipinos.</p>
         </div>
     </section>
 
     <section id="members" class="section">
         <div class="container">
-            <img src="./assets/images/img20.jpg" alt="Members Image" class="content-image">
-            <h3><a href="./pages/membership.html">Membership</a></h3>
+            <img src="./assets/images/img20.jpg" alt="Diverse group of people representing PhilHealth members" class="content-image">
+            <h3><a href="./pages/membership.html">Membership Options</a></h3>
+            <p>Find the right membership category for your needs.</p>
             <div class="cards">
                 <div class="card">
                     <h4>Employed</h4>
-                    <p>For employees in public or private sectors.</p>
+                    <p>Coverage for employees in public and private sectors.</p>
                 </div>
                 <div class="card">
                     <h4>Self-Employed</h4>
-                    <p>For freelancers and entrepreneurs.</p>
+                    <p>Options for freelancers, entrepreneurs, and informal workers.</p>
                 </div>
                 <div class="card">
                     <h4>Senior Citizens</h4>
-                    <p>Automatic membership for Filipino senior citizens.</p>
+                    <p>Information on automatic coverage for Filipino seniors.</p>
                 </div>
             </div>
         </div>
@@ -63,29 +70,31 @@
 
     <section id="services" class="section">
         <div class="container">
-            <img src="./assets/images/img21.jpg" alt="Benefits Image" class="content-image">
-            <img src="./assets/images/img22.jpg" alt="Online Services Image" class="content-image">
-            <h3><a href="./pages/services.html">Services</a></h3>
+            <img src="./assets/images/img21.jpg" alt="Illustration of medical benefits" class="content-image">
+            <img src="./assets/images/img22.jpg" alt="Person using online services on a laptop" class="content-image">
+            <h3><a href="./pages/services.html">Our Services</a></h3>
+            <p>Discover the benefits and services available to members.</p>
             <ul class="services-list">
-                <li>Benefits Packages</li>
-                <li>Claims Processing</li>
-                <li>Online Member Registration</li>
-                <li>Accredited Healthcare Facilities</li>
+                <li>Comprehensive Benefits Packages</li>
+                <li>Efficient Claims Processing</li>
+                <li>Convenient Online Member Services</li>
+                <li>Network of Accredited Facilities</li>
             </ul>
         </div>
     </section>
 
     <section id="news" class="section news">
         <div class="container">
-            <h3><a href="./pages/news.html">Latest News</a></h3>
+            <h3><a href="./pages/news.html">Latest Updates & News</a></h3>
+            <p>Stay informed about the latest developments and announcements from PhilHealth.</p>
             <div class="news-items">
                 <div class="news-item">
-                    <h4>PhilHealth expands coverage in 2025</h4>
-                    <p>New benefits and improved access for members nationwide.</p>
+                    <h4>Expanded Coverage Planned for 2025</h4>
+                    <p>Learn about upcoming enhancements to benefits and member access.</p>
                 </div>
                 <div class="news-item">
-                    <h4>Online system upgrade completed</h4>
-                    <p>Faster processing and improved service delivery.</p>
+                    <h4>Online System Upgrade Successful</h4>
+                    <p>Experience faster processing and improved online service delivery.</p>
                 </div>
             </div>
         </div>
@@ -93,30 +102,44 @@
 
     <section class="section extra-links">
         <div class="container">
-            <h2>Quick Links & Partners</h2>
+            <h2>Quick Access & Partner Resources</h2>
+            <p>Find important links and information about our partners.</p>
             <div class="image-links">
-                 <a href="#"><img src="./assets/images/konsulta.jpg" alt="Konsulta" class="content-image"></a>
-                 <a href="#"><img src="./assets/images/contact_btn.jpg" alt="Contact" class="content-image"></a>
-                 <a href="#"><img src="./assets/images/uhc_btn.jpg" alt="UHC" class="content-image"></a>
-                 <a href="#"><img src="./assets/images/arta_bnnr_sml.jpg" alt="ARTA" class="content-image"></a>
-                 <a href="#"><img src="./assets/images/UnclaimedRefunds.jpg" alt="Unclaimed Refunds" class="content-image"></a>
+                 <a href="#"><img src="./assets/images/konsulta.jpg" alt="Konsulta Program Information" class="content-image"></a>
+                 <a href="#"><img src="./assets/images/contact_btn.jpg" alt="Contact PhilHealth" class="content-image"></a>
+                 <a href="#"><img src="./assets/images/uhc_btn.jpg" alt="Universal Health Care Law Information" class="content-image"></a>
+                 <a href="#"><img src="./assets/images/arta_bnnr_sml.jpg" alt="ARTA Compliance Information" class="content-image"></a>
+                 <a href="#"><img src="./assets/images/UnclaimedRefunds.jpg" alt="Check for Unclaimed Refunds" class="content-image"></a>
             </div>
             <div class="partner-logos">
-                 <img src="./assets/images/logo3.png" alt="Partner Logo 1" class="content-image">
-                 <img src="./assets/images/logo4.png" alt="Partner Logo 2" class="content-image">
-                 <img src="./assets/images/logo5.png" alt="Partner Logo 3" class="content-image">
+                 <img src="./assets/images/logo3.png" alt="Partner Logo 1" class="content-image partner-logo">
+                 <img src="./assets/images/logo4.png" alt="Partner Logo 2" class="content-image partner-logo">
+                 <img src="./assets/images/logo5.png" alt="Partner Logo 3" class="content-image partner-logo">
             </div>
         </div>
     </section>
 
     <footer id="contact" class="footer">
         <div class="container">
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#members">Membership</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="./pages/contact.html">Contact</a></li>
+                    <li><a href="#">Privacy Notice</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                </ul>
+            </div>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            </div>
             <p>&copy; 2025 PhilHealth. All Rights Reserved.</p>
-            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
             <p>Email: info@philhealth.gov.ph | Hotline: (02) 8441-7442</p>
-            <img src="./assets/images/NPCSeal_Portrait.jpg" alt="NPC Seal" class="npc-seal">
+            <img src="./assets/images/NPCSeal_Portrait.jpg" alt="National Privacy Commission Seal" class="npc-seal">
+            <p class="disclosure">PhilHealth supports the call for greater transparency in public governance.</p>
         </div>
     </footer>
 </body>
