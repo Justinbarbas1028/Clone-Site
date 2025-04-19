@@ -203,3 +203,47 @@ footer i{
     font-size: 24px;
     padding: 5px 2.5px;
 }
+
+.content-image {
+    width: 100%;
+    max-width: 300px; /* Adjust as needed */
+    display: block;
+    margin: 1rem auto;
+    border-radius: 8px;
+}
+
+.extra-links .container {
+    text-align: center;
+}
+
+.image-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.image-links a img {
+    max-width: 150px; /* Adjust size of link images */
+    border-radius: 5px;
+}
+
+.partner-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.partner-logos img {
+    max-height: 60px; /* Adjust size of partner logos */
+    width: auto;
+}
+
+.npc-seal {
+    display: block;
+    margin: 1rem auto 0;
+    max-width: 100px; /* Adjust size of NPC seal */
+}
